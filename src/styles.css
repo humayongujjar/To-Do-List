@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sora", sans-serif;
+}
+body {
+  background-color: rgba(167, 204, 216, 0.4);
+}
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 55vw;
+  background: #f5f5f5;
+  padding-top: 15px;
+  overflow-y: auto;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;
+  height: 300px;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 55vw;
+  padding: 15px 10px;
+  background: #f5f5f5;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px 10px;
+}
+.nav .title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #018abe;
+}
+.animate {
+  color: #018abe;
+  animation: slide-in-from-left 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.new-todo {
+  display: flex;
+  width: 100%;
+}
+.input-style {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #555;
+  padding-bottom: 10px;
+  outline: none;
+}
+.input-style:focus {
+  border-color: #007bff;
+}
+.new-todo button {
+  width: 20%;
+  background: #018abe;
+  border: 1px solid;
+  color: #f5f5f5;
+  outline: none;
+  cursor: pointer;
+}
+.todos {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.todos {
+  animation: slide-down 0.8s ease-in-out;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e2e2e2;
+  padding: 10px;
+}
+.btns {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+.btns button {
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  outline: none;
+  cursor: pointer;
+}
+.btns .del {
+  position: relative;
+}
+.tooltip {
+  position: absolute;
+  top: -10px;
+  opacity: 0;
+  right: -20px;
+  background-color: #ea3323;
+  color: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  z-index: 10000;
+}
+.done {
+  background-color: #08b453;
+  right: -15px;
+}
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #ea3323;
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  bottom: -15%;
+  transition-duration: 0.5s;
+}
+.done::before {
+  background-color: #08b453;
+}
+.tool:hover .tooltip {
+  top: -35px;
+  opacity: 1;
+  transition-duration: 0.5s;
+}
